@@ -1,0 +1,18 @@
+orderDataSourceFactory:
+  driverClass: com.mysql.jdbc.Driver
+  user: order_user
+  password: order_db_pw_123
+  url: jdbc:mysql://localhost:3306/order_db?useSSL=false
+  properties:
+    charset: UTF-8
+    maxWaitForConnections: 1s
+    validationQuery: "/* MyService Health Check */ SELECT 1"
+    minSize: 8
+    maxSize: 32
+    checkConnectionWhileIdle: false
+    evictionInterval: 10s
+    minIdleTime: 1 minute
+logging:
+  level: INFO
+  loggers:
+    org.mcarabolante: INFO
