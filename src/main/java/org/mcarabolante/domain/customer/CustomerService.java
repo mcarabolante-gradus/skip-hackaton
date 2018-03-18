@@ -1,9 +1,11 @@
 package org.mcarabolante.domain.customer;
 
+import org.jvnet.hk2.annotations.Service;
 import org.mcarabolante.authentication.TokenGenerator;
 import org.mcarabolante.commons.BcryptUtil;
 import org.mcarabolante.domain.session.SessionDAO;
 
+import javax.inject.Inject;
 import javax.ws.rs.core.Response;
 import java.util.Optional;
 
@@ -11,6 +13,7 @@ public class CustomerService {
     private final CustomerDAO customerDAO;
     private final SessionDAO sessionDAO;
 
+    @Inject
     public CustomerService(CustomerDAO customerDAO, SessionDAO sessionDAO) {
         this.customerDAO = customerDAO;
         this.sessionDAO = sessionDAO;

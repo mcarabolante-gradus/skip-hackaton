@@ -3,6 +3,7 @@ package org.mcarabolante.resources;
 import org.mcarabolante.domain.product.Product;
 import org.mcarabolante.domain.product.ProductDAO;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -18,6 +19,7 @@ import static org.mcarabolante.commons.ResponseUtil.fromOptional;
 public class ProductResource {
     private final ProductDAO productDAO;
 
+    @Inject
     public ProductResource(ProductDAO productDAO) {
         this.productDAO = productDAO;
     }

@@ -46,17 +46,24 @@ public class OrderApp extends Application<SkipConfiguration> {
             @Override
             protected void configure() {
                 bind(appDb.instance(CustomerDAO.class)).to(CustomerDAO.class);
+                bind(appDb.instance(ProductDAO.class)).to(ProductDAO.class);
+                bind(appDb.instance(StoreDAO.class)).to(StoreDAO.class);
+                bind(appDb.instance(CuisineDAO.class)).to(CuisineDAO.class);
+                bind(appDb.instance(SessionDAO.class)).to(SessionDAO.class);
+                bind(appDb.instance(OrderDAO.class)).to(OrderDAO.class);
+                bind(CustomerService.class).to(CustomerService.class);
+                bind(CustomerValidator.class).to(CustomerValidator.class);
+                bind(OrderValidator.class).to(OrderValidator.class);
+
                 bindFactory(CustomerAuth.class).to(Customer.class).in(RequestScoped.class);
             }
         });
 
-
-        // TODO - DI
-        environment.jersey().register(new StoreResource(appDb.instance(StoreDAO.class), appDb.instance(ProductDAO.class)));
-        environment.jersey().register(new ProductResource(appDb.instance(ProductDAO.class)));
-        environment.jersey().register(new CuisineResource(appDb.instance(CuisineDAO.class), appDb.instance(StoreDAO.class)));
-        environment.jersey().register(new CustomerResource(new CustomerValidator(appDb.instance(CustomerDAO.class)), new CustomerService(appDb.instance(CustomerDAO.class), appDb.instance(SessionDAO.class))));
-        environment.jersey().register(new OrderResource(appDb.instance(OrderDAO.class), new OrderValidator(appDb.instance(StoreDAO.class))));
+        environment.jersey().register(StoreResource.class);
+        environment.jersey().register(ProductResource.class);
+        environment.jersey().register(CuisineResource.class);
+        environment.jersey().register(CustomerResource.class);
+        environment.jersey().register(OrderResource.class);
     }
 
 }

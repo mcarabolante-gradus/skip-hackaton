@@ -4,6 +4,7 @@ import com.google.common.base.Predicates;
 import org.mcarabolante.domain.store.Store;
 import org.mcarabolante.domain.store.StoreDAO;
 
+import javax.inject.Inject;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,6 +14,7 @@ import static com.google.common.base.Predicates.not;
 public class OrderValidator {
     private final StoreDAO storeDAO;
 
+    @Inject
     public OrderValidator(StoreDAO storeDAO) {
         this.storeDAO = storeDAO;
     }

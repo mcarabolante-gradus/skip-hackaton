@@ -7,6 +7,7 @@ import org.mcarabolante.domain.order.Order;
 import org.mcarabolante.domain.order.OrderDAO;
 import org.mcarabolante.domain.order.OrderValidator;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.*;
 import javax.ws.rs.core.Context;
@@ -22,6 +23,7 @@ public class OrderResource {
     private final OrderDAO orderDAO;
     private final OrderValidator orderValidator;
 
+    @Inject
     public OrderResource(OrderDAO orderDAO, OrderValidator orderValidator) {
         this.orderDAO = orderDAO;
         this.orderValidator = orderValidator;

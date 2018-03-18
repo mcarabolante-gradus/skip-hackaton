@@ -5,6 +5,7 @@ import org.mcarabolante.domain.customer.CustomerCommand;
 import org.mcarabolante.domain.customer.CustomerService;
 import org.mcarabolante.domain.customer.CustomerValidator;
 
+import javax.inject.Inject;
 import javax.validation.Valid;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -21,6 +22,7 @@ public class CustomerResource {
     private final CustomerValidator customerValidator;
     private final CustomerService customerService;
 
+    @Inject
     public CustomerResource(CustomerValidator customerValidator, CustomerService customerService) {
         this.customerValidator = customerValidator;
         this.customerService = customerService;

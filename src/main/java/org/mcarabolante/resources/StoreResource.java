@@ -5,6 +5,7 @@ import org.mcarabolante.domain.product.ProductDAO;
 import org.mcarabolante.domain.store.Store;
 import org.mcarabolante.domain.store.StoreDAO;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -22,6 +23,7 @@ public class StoreResource {
     private final StoreDAO storeDAO;
     private final ProductDAO productDAO;
 
+    @Inject
     public StoreResource(StoreDAO storeDAO, ProductDAO productDAO) {
         this.storeDAO = storeDAO;
         this.productDAO = productDAO;

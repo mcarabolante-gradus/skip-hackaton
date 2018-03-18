@@ -5,6 +5,7 @@ import org.mcarabolante.domain.cuisine.CuisineDAO;
 import org.mcarabolante.domain.store.Store;
 import org.mcarabolante.domain.store.StoreDAO;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -19,6 +20,7 @@ public class CuisineResource {
     private final CuisineDAO cuisineDAO;
     private final StoreDAO storeDAO;
 
+    @Inject
     public CuisineResource(CuisineDAO cuisineDAO, StoreDAO storeDAO) {
         this.cuisineDAO = cuisineDAO;
         this.storeDAO = storeDAO;
