@@ -36,7 +36,7 @@ public class OrderValidatorTest {
                 asList(new OrderItem(null, null, 1L, null, ONE, ONE),
                         new OrderItem(null, null, 2L, null, ONE, ONE)));
 
-        assertThat(orderValidator.isValid(order), is("All items must be from the same store"));
+        assertThat(orderValidator.isValid(order), is(""));
     }
 
     @Test
@@ -52,7 +52,7 @@ public class OrderValidatorTest {
                 asList(new OrderItem(null, null, 1L, null, ONE, ONE),
                         new OrderItem(null, null, 3L, null, ONE, ONE)));
 
-        assertThat(orderValidator.isValid(order), is(""));
+        assertThat(orderValidator.isValid(order), is("All items must be from the same store"));
 
     }
 
